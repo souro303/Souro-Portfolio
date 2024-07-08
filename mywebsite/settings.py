@@ -1,4 +1,3 @@
-
 from pathlib import Path
 import os
 
@@ -14,7 +13,7 @@ SECRET_KEY = 'django-insecure-6brczmqhw_1b0fpw5&@pu(yk&g_+l!4n8%4q7a$an4#nj_m(jq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app']
 
 # Application definition
 
@@ -25,7 +24,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
     'base',
 ]
 
@@ -103,14 +101,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# Additional directories where static files are located
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles'),  # Directory where your CSS, JS, and images reside
+    os.path.join(BASE_DIR, 'static'),
 ]
 
-
-
-MEDIA_URL = '/images/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
@@ -118,17 +113,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-#for contact us give your gmail id and password
-EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+# Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'souro.developer@gmail.com' # this email will be used to send emails
-EMAIL_HOST_PASSWORD = 'qjty erda iyee xaaf' # host email password required
-# now sign in with your host gmail account in your browser
-# open following link and turn it ON
-# https://myaccount.google.com/lesssecureapps
-# otherwise you will get SMTPAuthenticationError at /contactus
-# this process is required because google blocks apps authentication by default
-EMAIL_RECEIVING_USER = ['souro.contact@gmail.com'] # email on which you will receive messages sent from website
+EMAIL_HOST_USER = 'souro.developer@gmail.com'  # this email will be used to send emails
+EMAIL_HOST_PASSWORD = 'qjty erda iyee xaaf'  # host email password required
+EMAIL_RECEIVING_USER = ['souro.contact@gmail.com']  # email on which you will receive messages sent from website
+
+# Note:
+# Make sure to set up environment variables for SECRET_KEY, EMAIL_HOST_USER, and EMAIL_HOST_PASSWORD in a production environment
