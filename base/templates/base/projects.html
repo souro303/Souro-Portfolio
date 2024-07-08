@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Souro | Projects</title>
+    <link rel="stylesheet" href="{% static 'CSS/projects.css' %}"> <!-- Link to your navbar CSS file -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap CSS -->
+    
+</head>
+<body>
+    <header>
+        {% include 'base/navbar.html' %}
+    </header>
+
+    <main>
+        <div class="container">
+            <h2 class="text-center mb-3">My Projects</h2>
+            <hr class="h">
+            <div class="row">
+                {% for project in projects %}
+                <div class="col-md-6 mb-3">
+                    <div class="card project-card h-100">
+                        <img src="{{ project.image_url }}" class="card-img-top" alt="{{ project.title }}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ project.title }}</h5>
+                            <p class="card-text">{{ project.description }}</p>
+                            <div class="project-tags mb-3">
+                                {% for tag in project.tags %}
+                                <span>{{ tag }}</span>
+                                {% endfor %}
+                            </div>
+                            <a href="{{ project.detail_url }}" class="btn btn-primary mt-auto">View Details</a>
+                            {% if project.source_url %}
+                            <a href="{{ project.source_url }}" class="btn btn-secondary mt-2" target="_blank">Source Code</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+    <footer>
+        {% include 'base/footer.html' %}
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

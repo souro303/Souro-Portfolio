@@ -1,0 +1,267 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Souro</title>
+    <link
+      href="{% static 'CSS/navbar.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        padding: 0;
+      }
+
+      .nav-links li {
+        margin-left: 10px;
+      }
+
+      .nav-links button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .menu-button {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .menu-button {
+          display: block;
+        }
+      }
+
+      /* Back to top button styling */
+      #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        background-color: transparent;
+        color: none;
+        border: 2px solid rgba(3, 169, 246, 0.8);
+        padding: 8px 10px;
+        font-size: 15px;
+        cursor: pointer;
+        transform: scale(1.1);
+        border-radius: 50%; /* Circular border */
+        box-shadow: 0 4px 8px Black;
+        z-index: 1000; /* Ensure the button is on top of other elements */
+      }
+
+      /* Dark mode button styling */
+      .dark-mode #back-to-top {
+        background-color: transparent;
+        color: none;
+        border: 2px solid #eed817;
+        transform: scale(1.1);
+        border-radius: 50%; /* Circular border */
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.4);
+      }
+      .con{
+        text-align: right;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar" role="navigation">
+        <div class="container con">
+          <div class="brand">
+            <a href="{% url 'home' %}">
+              <img
+                id="logo"
+                src="{% static 'images/black-logo.png' %}"
+                alt="Profile Picture"
+                width="100"
+                height="35"
+                style="margin: 0 auto"
+              />
+            </a>
+          </div>
+
+          <button class="menu-button" id="menu-button" aria-label="Toggle Menu">
+            <img
+              id="menu-icon"
+              src="{% static 'images/menu-light.png' %}"
+              alt="Menu Light Mode"
+              width="28"
+              height="28"
+            />
+          </button>
+
+          <ul class="nav-links" id="nav-links" role="menu">
+            <li role="menuitem">
+              <button onclick="navigateTo('home')">Home</button>
+            </li>
+            <li role="menuitem">
+              <button onclick="navigateTo('about')">About</button>
+            </li>
+            <li role="menuitem">
+              <button onclick="navigateTo('projects')">Projects</button>
+            </li>
+            <li role="menuitem">
+              <button onclick="navigateTo('resume')">Resume</button>
+            </li>
+            <li role="menuitem">
+              <button onclick="navigateTo('contact')">Contact</button>
+            </li>
+            <li role="menuitem">
+              <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
+                <img
+                  id="mode-icon"
+                  src="{% static 'images/light-mode.png' %}"
+                  alt="Toggle Dark Mode"
+                  width="28"
+                  height="28"
+                />
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <hr />
+    </header>
+
+    <button id="back-to-top" aria-label="Back to Top">
+      <img
+        src="{% static 'images/up-arrow-black.png' %}"
+        id="up-arrow"
+        alt="Up Arrow Black"
+        width="25"
+        height="25"
+      />
+    </button>
+
+    <script>
+      const darkModeToggle = document.getElementById("dark-mode-toggle");
+      const body = document.body;
+      const logo = document.getElementById("logo");
+      const menuIcon = document.getElementById("menu-icon");
+      const modeIcon = document.getElementById("mode-icon");
+      const menuButton = document.getElementById("menu-button");
+      const navLinks = document.getElementById("nav-links");
+      const upArrow = document.getElementById("up-arrow");
+
+      function navigateTo(page) {
+        window.location.href = page;
+      }
+
+      darkModeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        const isDarkMode = body.classList.contains("dark-mode");
+        localStorage.setItem("darkMode", isDarkMode);
+
+        if (isDarkMode) {
+          modeIcon.src = "{% static 'images/dark-mode.png' %}";
+          menuIcon.src = "{% static 'images/menu-dark.png' %}";
+          logo.src = "{% static 'images/light-logo.png' %}";
+          upArrow.src = "{% static 'images/up-arrow-white.png' %}";
+        } else {
+          modeIcon.src = "{% static 'images/light-mode.png' %}";
+          menuIcon.src = "{% static 'images/menu-light.png' %}";
+          logo.src = "{% static 'images/black-logo.png' %}";
+          upArrow.src = "{% static 'images/up-arrow-black.png' %}";
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const isDarkMode = localStorage.getItem("darkMode") === "true";
+        if (isDarkMode) {
+          body.classList.add("dark-mode");
+          modeIcon.src = "{% static 'images/dark-mode.png' %}";
+          menuIcon.src = "{% static 'images/menu-dark.png' %}";
+          logo.src = "{% static 'images/light-logo.png' %}";
+          upArrow.src = "{% static 'images/up-arrow-white.png' %}";
+        } else {
+          modeIcon.src = "{% static 'images/light-mode.png' %}";
+          menuIcon.src = "{% static 'images/menu-light.png' %}";
+          logo.src = "{% static 'images/black-logo.png' %}";
+          upArrow.src = "{% static 'images/up-arrow-black.png' %}";
+        }
+      });
+
+      menuButton.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+
+      // Back to Top Button Script
+      const backToTopButton = document.getElementById("back-to-top");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 200) {
+          backToTopButton.style.display = "block";
+        } else {
+          backToTopButton.style.display = "none";
+        }
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      function navigateTo(destination) {
+        let url;
+        switch (destination) {
+            case 'home':
+                url = '/home';
+                break;
+            case 'about':
+                url = '/about';
+                break;
+            case 'projects':
+                url = '/projects';
+                break;
+            case 'resume':
+                url = '/resume';
+                break;
+            case 'contact':
+                url = '/contact';
+                break;
+            default:
+                return;
+        }
+        window.location.href = url;
+    }
+    
+    </script>
+  </body>
+</html>

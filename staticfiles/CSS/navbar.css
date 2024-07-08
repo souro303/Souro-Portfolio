@@ -1,0 +1,136 @@
+/* Basic navbar styling */
+.navbar {
+    background-color: #f5f5f5;
+    color: rgb(0, 0, 0);
+    padding: 1rem 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+    margin-top: 1.5rem;
+}
+
+body .nav-links button {
+    background: transparent;
+    border: none;
+    box-shadow: 0 0 3px rgba(6, 173, 229, 0.938);
+    color: rgb(0, 0, 0);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.nav-links button:hover {
+    border: 1px solid rgb(0, 179, 255);
+    transform: scale(1.1);
+    box-shadow: 0 0 5px rgba(6, 173, 229, 0.938);
+}
+
+/* Dark mode styles for navbar */
+.dark-mode .navbar {
+    background-color: #333; /* Darker navbar background color */
+}
+
+.dark-mode .nav-links button {
+    color: #ffffff; /* Light text color for navbar buttons in dark mode */
+    box-shadow: 0 0 3px rgba(255, 208, 0, 0.5);
+}
+
+.dark-mode .nav-links button:hover {
+    border-color: #eed817;
+    box-shadow: 0 0 5px rgba(255, 208, 0, 0.5);
+}
+
+/* Dark mode toggle button styling */
+#dark-mode-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#dark-mode-toggle img {
+    display: block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+}
+
+.navbar .container .con{
+    padding: 0;
+}
+
+
+
+/* General logo styles */
+#logo {
+    width: 100px; /* Adjust dimensions as needed */
+    height: 35px; /* Adjust dimensions as needed */
+    margin: 0 auto;
+    transition: transform 0.2s, box-shadow 0.2s, outline-color 0.2s;
+    outline: 2px solid transparent; /* Initial outline */
+}
+
+/* Glow animation */
+@keyframes glow-light {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(3, 169, 246, 0.8); /* Adjusted for light mode */
+        outline-color: rgba(3, 169, 246, 0.8); /* Adjusted for light mode */
+    }
+    100% {
+        transform: scale(1.02);
+        box-shadow: 0 0 15px rgba(3, 169, 246, 1); /* Adjusted for light mode */
+        outline-color: rgba(3, 169, 246, 1); /* Adjusted for light mode */
+    }
+}
+
+@keyframes glow-dark {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(235, 192, 2, 0.8); /* Adjusted for dark mode */
+        outline-color: rgba(235, 192, 2, 0.8); /* Adjusted for dark mode */
+    }
+    100% {
+        transform: scale(1.02);
+        box-shadow: 0 0 15px rgba(235, 192, 2, 1); /* Adjusted for dark mode */
+        outline-color: rgba(235, 192, 2, 1); /* Adjusted for dark mode */
+    }
+}
+
+/* Apply glow animation */
+#logo {
+    animation: glow-light 1s infinite alternate;
+}
+
+.dark-mode #logo {
+    animation: glow-dark 1s infinite alternate;
+}
+
+/* Outline effect */
+@keyframes outline-effect {
+    0% {
+        outline-color: transparent;
+    }
+    100% {
+        outline-color: rgba(255, 255, 255, 0.8); /* Adjust outline color and transparency as needed */
+    }
+}
+
+/* Apply outline effect after 3 seconds */
+#logo.bordered {
+    animation: outline-effect 0.5s ease-in-out forwards;
+    animation-delay: 3s; /* Delay of 3 seconds before the outline appears */
+    outline-color: rgba(255, 255, 255, 0.8); /* Ensure the outline stays visible after animation */
+}

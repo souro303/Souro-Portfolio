@@ -1,0 +1,242 @@
+/* project_detail.css */
+
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+body.dark-mode {
+    background-color: #333 !important;
+    color: #fff; /* Light text color on dark background */
+}
+
+.divider {
+    position: relative;
+    margin: 20px auto;
+    width: 50%;
+    height: 1.5px;
+    background: rgb(0, 179, 255);
+    transition: width 0.3s ease-in-out;
+}
+
+.dark-mode .divider {
+    background-color: #eed817;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.dark-mode .card {
+    background-color: #444; /* Darker card background color */
+    color: #fff; /* Light text color on dark background */
+}
+
+.card:hover {
+    transform: scale(1.02); /* Slightly enlarge the card */
+    box-shadow: 0 5px 10px rgb(85, 85, 85); /* Add a shadow effect */
+}
+
+.dark-mode .card:hover {
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2); /* Adjust shadow color for dark mode */
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* 16:9 aspect ratio */
+}
+
+.project-tags span {
+    display: inline-block;
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 0.5em 0.75em;
+    margin: 0.2em;
+    border-radius: 3px;
+}
+
+.single-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+@media (max-width: 1024px) {
+    .single-img {
+        width: 100%;
+    }
+}
+
+.single-img img {
+    width: 600px;
+    height: 337.5px; /* 16:9 aspect ratio */
+    border-radius: 15px;
+    box-shadow: rgba(155, 156, 159, 0.42) 0px 60px 123px -25px,
+                rgba(155, 156, 159, 0.08) 0px 35px 75px -35px;
+    transform: perspective(600px) rotateY(25deg) scale(0.8) rotateX(10deg);
+    filter: blur(0px);
+    opacity: 1;
+    transition: 0.6s ease all;
+}
+
+.single-img img:hover {
+    box-shadow: 0px 19px 67px -38px rgba(155, 156, 159, 0.8);
+    transform: perspective(600px) rotateY(0deg) translateY(-50px) rotateX(0deg) scale(1);
+    filter: blur(0.2px);
+    opacity: 1;
+}
+
+@media (max-width: 759px) {
+    .single-img img {
+        width: 400px;
+        height: 225px; /* 16:9 aspect ratio */
+    }
+}
+
+@media (max-width: 479px) {
+    .single-img img {
+        width: 300px;
+        height: 168.75px; /* 16:9 aspect ratio */
+    }
+}
+
+.reverse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.reverse img {
+    width: 600px;
+    height: 337.5px; /* 16:9 aspect ratio */
+    border-radius: 15px;
+    box-shadow: rgba(155, 156, 159, 0.42) 0px 60px 123px -25px,
+                rgba(155, 156, 159, 0.08) 0px 35px 75px -35px;
+    transform: perspective(600px) rotateY(-25deg) scale(0.8) rotateX(10deg);
+    filter: blur(0px);
+    opacity: 1;
+    transition: 0.6s ease all;
+}
+
+.reverse img:hover {
+    box-shadow: 0px 19px 67px -38px rgba(155, 156, 159, 0.8);
+    transform: perspective(600px) rotateY(5deg) translateY(0px) rotateX(5deg) scale(1);
+    filter: blur(0.2px);
+    opacity: 1;
+}
+
+@media (max-width: 759px) {
+    .reverse img {
+        width: 500px;
+        height: 281.25px; /* 16:9 aspect ratio */
+    }
+}
+
+@media (max-width: 479px) {
+    .reverse img {
+        width: 350px;
+        height: 196.875px; /* 16:9 aspect ratio */
+    }
+}
+
+.card-body-3{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.project-tags span {
+    border: 1px solid #27bfe9;
+    background-color: transparent;
+    box-shadow: 0 0 3px rgba(6, 173, 229, 0.938);
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+
+.dark-mode .project-tags span {
+    border-color: #eed817;
+    color:#fff;
+    box-shadow: 0 0 5px rgba(255, 208, 0, 0.5);
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+
+/* project_detail.css */
+
+.Source-button {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 2px solid rgb(0, 179, 255);
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.Source-button:hover {
+    background-color: rgb(0, 179, 255);
+    border-color: black;
+}
+
+.dark-mode .Source-button {
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 0 5px rgba(255, 208, 0, 0.5);
+}
+
+.dark-mode .Source-button:hover {
+    background-color: rgba(255, 208, 0, 0.5);
+    border-color: #fff;
+}
+
+@keyframes glow-light {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(3, 169, 246, 0.8);
+    }
+    100% {
+        transform: scale(1.02);
+        box-shadow: 0 0 15px rgba(3, 169, 246, 1);
+    }
+}
+
+@keyframes glow-dark {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(235, 192, 2, 0.8);
+    }
+    100% {
+        transform: scale(1.02);
+        box-shadow: 0 0 15px rgba(235, 192, 2, 1);
+    }
+}
+
+.Source-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1;
+    animation: glow-light 1s infinite alternate;
+}
+
+.dark-mode .Source-button::before {
+    background-color: rgba(0, 0, 0, 0.2);
+    animation: glow-dark 1s infinite alternate;
+}
+

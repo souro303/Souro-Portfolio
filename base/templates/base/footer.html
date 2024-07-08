@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    /* Light mode styles */
+    body {
+      background-color: #f5f5f5;
+      color: black;
+    }
+
+    .foot {
+      background-color: #f1f1f1;
+      color: black;
+    }
+
+    /* Dark mode styles */
+    .dark-mode body {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .dark-mode .foot {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .dark-mode .text-dark {
+      color: #fff !important;
+    }
+  </style>
+</head>
+<body class="light-mode">
+
+  <hr />
+  <!-- Other content of the website -->
+
+  <footer class="text-center text-white foot">
+    <!-- Grid container -->
+    <div class="container pt-1">
+      <!-- Section: Social media -->
+      <section class="mb-2">
+          <!-- Linkedin -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="https://www.linkedin.com/in/souro303/"
+            role="button"
+            target="_blank"
+            data-mdb-ripple-color="dark"
+          ><i class="fab fa-linkedin"></i></a>
+          <!-- Github -->
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="https://github.com/souro303"
+            role="button"
+            target="_blank"
+            data-mdb-ripple-color="dark"
+          ><i class="fab fa-github"></i></a>
+        <!-- Twitter -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="https://x.com/souro303"
+          role="button"
+          target="_blank"
+          data-mdb-ripple-color="dark"
+        ><i class="fab fa-twitter"></i></a>
+
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2024 Copyright | Souro
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+</body>
+</html>

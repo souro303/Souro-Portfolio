@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Souro</title>
+    <link href="{% static 'CSS/home.css' %}" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-LX1J+Y9rq5l0hM95c5uEmMyAIsf3+T6H0DDd1XZb0NKbL8y1jb2uH8mtnsk1Yw0MtL+m8q1GQASFD0ISk1Wkxg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <header>
+      {% include 'base/navbar.html' %}
+    </header>
+
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-md-3 mb-3 mb-md-0">
+          <div class="card card-body h-100 border-info" id="profile-wrapper">
+            <img
+              id="profile-pic"
+              src="{% static 'images/profile 1.png' %}"
+              class="img-fluid rounded-circle"
+              alt="Profile Picture"
+            />
+            <hr class="hover-hr" />
+            <h4>Hello, I'm <b>Souro!</b></h4>
+            <p>
+              I have a passion for coding, conducting research, and engaging in
+              collaborative projects.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-9 mb-3 mb-md-0">
+          <div class="card card-body h-100 border-info">
+            <h4>My learning progress</h4>
+            <hr class="hover-hr" />
+            <p>
+              Starting with a foundation in C programming, I honed my
+              problem-solving skills on platforms like Breecrowd. Transitioning
+              to C++, I expanded my understanding of object-oriented programming
+              principles and gained proficiency in a wider range of
+              applications. Finally, dedicating myself to Python, I delved into
+              its versatile capabilities, leveraging its simplicity and
+              readability for various projects and collaborations. Through this
+              journey, I've cultivated a diverse skill set and a deep
+              appreciation for the power of programming languages in solving
+              real-world challenges.
+            </p>
+            <p>
+              Before I realized it, we seamlessly shifted from the previous
+              system to mine. Suddenly, I found myself at the helm, responsible
+              for hosting hundreds of thousands of laboratory samples and
+              providing support to thousands of clients.
+            </p>
+            <p>
+              From this you’ll see that I’m someone that jumps before I can talk
+              myself out of doing something scary.
+            </p>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row g-3">
+        <div class="col-md-6 mb-3 mb-md-0">
+          <div class="card card-body h-100 border-success">
+            <h5>My Experience as a Developer</h5>
+            <hr class="hover-hr" />
+            <p>Full stack developer.</p>
+            <p>
+              Designed, built and managed a lab management system as a sole
+              developer. System supported thousands of customers with a UI for
+              customer dashboard.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3 mb-md-0">
+          <div class="card card-body h-100 border-success">
+            <h5>What I Know</h5>
+            <hr class="hover-hr" />
+            <p>
+              Python, Django, HTML/CSS, JavaScript/Jquery, React, and APIs more
+              I can’t possibly mention in one sentence!
+            </p>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-body h-100 border-warning">
+            <h5>How I Learn</h5>
+            <hr class="hover-hr h3" />
+            <p>Reverse Engineer & Build Ugly Prototypes First.</p>
+            <p>
+              I can learn just about anything by having a final product to tear
+              apart piece by piece. I break the code where I need to figure out
+              why things work the way they do. Documentation is just a
+              reference.
+            </p>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+    <footer>
+      {% include 'base/footer.html' %}
+    </footer>
+    
+  </body>
+</html>

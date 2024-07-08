@@ -1,0 +1,94 @@
+
+/* Default light mode styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333; /* Default text color */
+}
+
+
+/* Profile wrapper styling */
+#profile-wrapper {
+    text-align: center;
+}
+
+#profile-pic {
+    width: 150px;
+    height: 145px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.social-links ul,
+.social-links li {
+    list-style-type: none;
+    display: inline-block;
+}
+
+.social {
+    width: 20px;
+    height: 20px;
+}
+
+/* Card element styling */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #fff; /* Default card background color */
+    color: #333; /* Default card text color */
+}
+
+.card:hover {
+    transform: scale(1.02); /* Slightly enlarge the card */
+    box-shadow: 0 5px 10px rgb(85, 85, 85); /* Add a shadow effect */
+}
+
+.hover-hr {
+    border: 0;
+    height: 1.5px;
+    background: #ccc;
+    transition: background-color 0.3s ease;
+}
+
+.card:hover .hover-hr {
+    background: #27bfe9; /* Change this to the color you want on hover */
+}
+
+.card:hover b {
+    color: #27bfe9; /* Change this to the color you want on hover */
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #333 !important;
+    color: #fff; /* Light text color on dark background */
+}
+
+.dark-mode #profile-wrapper {
+    color: #fff; /* Light text color on dark background */
+}
+
+.dark-mode .card {
+    background-color: #444; /* Darker card background color */
+    color: #fff; /* Light text color on dark background */
+}
+
+.dark-mode .card:hover {
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2); /* Adjust shadow color for dark mode */
+}
+
+.dark-mode .hover-hr {
+    background-color: #555; /* Darker hover effect color */
+}
+
+.dark-mode .card:hover .hover-hr {
+    background-color: #e9c527; /* Change hover effect color for dark mode */
+}
+
+.dark-mode .card:hover b {
+    color: rgba(255, 183, 0, 0.912); /* Change hover text color for dark mode */
+}

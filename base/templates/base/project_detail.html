@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Souro | {{ project.title }}</title>
+    <link rel="stylesheet" href="{% static 'CSS/project_detail.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS to center content within container */
+        .center-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        {% include 'base/navbar.html' %}
+    </header>
+
+    <main>
+        <div class="container">
+            <h3 class="text-center mb-4">{{ project.title }}</h3>
+            <hr class="divider">
+            <br/>
+            
+            <div class="row card-body center-content">
+                <!-- Project Image and Description 1 -->
+                <div class="row">
+                <div class="col-md-6 single-img">
+                    <img src="{{ project.image_url }}" alt="{{ project.title }}">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body h-100">
+                        <p class="card-text">{{ project.long_description }}</p>
+                    </div>
+                </div>
+                </div>
+                    
+                <!-- Spacer -->
+                <br/>
+
+                <!-- Project Description and Image 2 (Reversed) -->
+                <div class="row">
+                    <div class="col-md-6 mb-3 order-md-1 order-2">
+                        <div class="card-body h-100">
+                            <p class="card-text">{{ project.long_description }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3 single-img reverse order-md-2 order-1">
+                        <img src="{{ project.image_url }}" alt="{{ project.title }}">
+                    </div>
+                </div>
+
+                <!-- Spacer -->
+                <br/>
+
+                <!-- Project Image and Tags/Source Code -->
+                <div class="row">
+                <div class="col-md-6 mb-3 single-img">
+                    <img src="{{ project.image_url }}" alt="{{ project.title }}">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card-body-3 h-100">
+                        <div class="project-tags mb-3">
+                            {% for tag in project.tags %}
+                            <span>{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+
+                        {% if project.source_url %}
+                        <a href="{{ project.source_url }}" class="btn mt-2 Source-button" target="_blank">Source Code</a>
+                        {% endif %}
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        {% include 'base/footer.html' %}
+    </footer>
+        
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
