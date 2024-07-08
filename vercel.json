@@ -1,15 +1,27 @@
 {
+    "version": 2,
+    "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "mywebsite/static/$1"
+        },
+        {
+            "src": "/media/(.*)",
+            "dest": "mywebsite/media/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "mywebsite/wsgi.py"
+        }
+    ],
     "builds": [
         {
             "src": "mywebsite/wsgi.py",
             "use": "@vercel/python",
-            "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "mywebsite/wsgi.py"
+            "config": {
+                "maxLambdaSize": "15mb",
+                "runtime": "python3.9"
+            }
         }
     ]
 }
